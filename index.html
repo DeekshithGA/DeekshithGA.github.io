@@ -1,159 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Modern Glassmorphic Blog</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Blog with Comments</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Reading progress -->
-  <div class="progress-wrap" aria-hidden="true">
-    <div id="readingProgress" class="progress"></div>
-  </div>
+  <!-- Progress Bar -->
+  <div id="readingProgress"></div>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#">
-        <div class="logo" aria-hidden="true">✦</div>
-        <div class="brand-text">
-          <h1>Aurora Blog</h1>
-          <p class="tagline">Design • Dev • Notes</p>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <button id="mobileNavBtn" class="mobile-nav-btn" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-          ☰
-        </button>
-
-        <ul id="primaryNav" class="nav-list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#posts">Posts</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌓</button></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyBlog</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button id="darkToggle">🌙</button>
+    </nav>
   </header>
 
-  <main id="home" class="main">
-    <section class="hero">
-      <div class="hero-left">
-        <div class="eyebrow">Featured</div>
-        <h2 class="hero-title">Modern CSS & UX — Built with fewer lines, more delight.</h2>
-        <p class="hero-desc">A small sample blog demonstrating glassmorphism, nice micro-interactions, and accessibility-minded JS.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#posts">Explore posts</a>
-          <a class="btn ghost" href="#about">About</a>
-        </div>
-      </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero fade-in">
+    <h2>Welcome to My Modern Blog</h2>
+    <p>Insights, stories, and ideas worth sharing.</p>
+  </section>
 
-      <div class="hero-art" aria-hidden="true">
-        <!-- decorative gradient block -->
-        <div class="art-block">CSS SHOWCASE</div>
-      </div>
-    </section>
+  <!-- Search -->
+  <section class="search-section fade-in">
+    <input type="text" id="searchInput" placeholder="Search blogs...">
+  </section>
 
-    <section id="posts" class="posts-section">
-      <div class="section-head">
-        <h3>Latest posts</h3>
-        <p class="muted">Short reads, long value.</p>
-      </div>
+  <!-- Blog Posts -->
+  <section id="blogs" class="blog-section fade-in">
+    <div class="blog-card" data-title="Exploring the Future of AI" data-content="Artificial intelligence is transforming industries and our daily lives. This post explores the emerging trends, ethical considerations, and future opportunities that AI presents for humanity.">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Artificial Intelligence">
+      <h3>Exploring the Future of AI</h3>
+      <p>Artificial intelligence is shaping the future. Here's what to expect...</p>
+    </div>
 
-      <div class="post-grid" id="postGrid" aria-live="polite">
-        <!-- posts are static but animate on load -->
-        <article class="post-card" tabindex="0" data-title="Glassmorphism: design with depth" data-content="Glassmorphism is a UI trend using backdrop-filter to create translucent, frosted-pane effects.">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#7c5cff,#ff7ab6);">Glassmorphism</div>
-          <div class="post-body">
-            <h4>Glassmorphism: design with depth</h4>
-            <p class="excerpt">Using translucent layers, subtle shadows and blur to create elegant UIs that feel tactile.</p>
-            <div class="meta">
-              <span class="tag">UI</span>
-              <span class="muted">Aug 2 • 4 min</span>
-            </div>
-            <div class="post-actions">
-              <a class="link" href="#" data-open>Read</a>
-            </div>
-          </div>
-        </article>
+   
 
-        <article class="post-card" tabindex="0" data-title="CSS Masonry & Grid Tricks" data-content="Create variable height card layouts with CSS column-count or masonry grid in modern browsers.">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#3ddc84,#1a89ff);">Masonry</div>
-          <div class="post-body">
-            <h4>CSS Masonry & Grid Tricks</h4>
-            <p class="excerpt">Make variable-height cards flow beautifully across breakpoints with CSS-only techniques.</p>
-            <div class="meta">
-              <span class="tag">Layout</span>
-              <span class="muted">Jul 28 • 5 min</span>
-            </div>
-            <div class="post-actions">
-              <a class="link" href="#" data-open>Read</a>
-            </div>
-          </div>
-        </article>
+    <div class="blog-card" data-title="Top 10 Travel Destinations" data-content="From pristine beaches to bustling cities, these are the top 10 destinations to visit in 2025 for an unforgettable adventure.">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Travel Destinations">
+      <h3>Top 10 Travel Destinations</h3>
+      <p>Discover the best places to visit in 2025...</p>
+    </div>
 
-        <article class="post-card" tabindex="0" data-title="Micro-interactions that matter" data-content="Micro-interactions give feedback and personality — time your motion and keep it subtle.">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#ffb86b,#ff7ab6);">Motion</div>
-          <div class="post-body">
-            <h4>Micro-interactions that matter</h4>
-            <p class="excerpt">Little motion, subtle timing — big perceived polish improvements.</p>
-            <div class="meta">
-              <span class="tag">UX</span>
-              <span class="muted">Jun 12 • 3 min</span>
-            </div>
-            <div class="post-actions">
-              <a class="link" href="#" data-open>Read</a>
-            </div>
-          </div>
-        </article>
+   
+    <div class="blog-card" data-title="Healthy Eating Made Simple" data-content="Eating healthy doesn’t have to be complicated. This guide offers simple tips, easy recipes, and practical advice to nourish your body every day.">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Healthy Eating">
+      <h3>Healthy Eating Made Simple</h3>
+      <p>Quick tips for eating better without the stress...</p>
+    </div>
 
-        <article class="post-card" tabindex="0" data-title="Accessible focus & keyboard UX" data-content="Design interactions that work for everyone; focus states, semantic markup and ARIA.">
-          <div class="thumb" style="background-image:linear-gradient(135deg,#3b82f6,#7c5cff);">Accessibility</div>
-          <div class="post-body">
-            <h4>Accessible focus & keyboard UX</h4>
-            <p class="excerpt">Design interactions that work for everyone — keyboard-first tips and patterns.</p>
-            <div class="meta">
-              <span class="tag">Accessibility</span>
-              <span class="muted">May 6 • 6 min</span>
-            </div>
-            <div class="post-actions">
-              <a class="link" href="#" data-open>Read</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <div class="blog-card" data-title="Mastering Personal Finance" data-content="Take control of your money with practical budgeting, saving, and investing strategies that can help you achieve financial freedom.">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?auto=format&fit=crop&w=800&q=80" alt="Personal Finance">
+      <h3>Mastering Personal Finance</h3>
+      <p>Smart ways to manage money and grow your wealth...</p>
+    </div>
+  </section>
 
-    <section id="about" class="about">
-      <h3>About</h3>
-      <p class="muted">This demo focuses on stylish, modern CSS plus small JS enhancements that make a site feel complete.</p>
-    </section>
+  <!-- About -->
+  <section id="about" class="about-section fade-in">
+    <h2>About This Blog</h2>
+    <p>This blog is a place to share knowledge, inspiration, and creativity. Built with love and modern design principles.</p>
+  </section>
 
-    <section id="contact" class="contact">
-      <h3>Contact</h3>
-      <p class="muted">Play with the theme toggle, mobile menu, and read-mode modal to see the interactions.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div>© <strong>Aurora Blog</strong> 2025 — Built with modern CSS</div>
+  <footer class="fade-in">
+    <p>© 2025 MyBlog. All rights reserved.</p>
   </footer>
 
-  <!-- modal for reading -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
-    <div class="modal-card" role="document">
-      <div class="modal-header">
-        <h2 id="modalTitle">Title</h2>
-        <button id="closeModal" class="close-btn" aria-label="Close article">✕</button>
+  <!-- Blog Modal -->
+  <div id="blogModal" class="modal">
+    <div class="modal-content slide-up">
+      <span id="closeModal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalContent"></p>
+
+      <div class="comment-section">
+        <h3>Comments</h3>
+        <ul id="commentList"></ul>
+        <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+        <button id="addComment">Add Comment</button>
       </div>
-      <div id="modalContent" class="modal-content"></div>
     </div>
   </div>
-
-  <!-- scroll to top -->
-  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
 </body>
